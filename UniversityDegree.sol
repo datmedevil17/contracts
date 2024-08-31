@@ -36,7 +36,23 @@ contract UniversityDegree is ERC721URIStorage {
     }
     mapping(address=>string) public personToDegree;
 
-    
+    function _transfer(
+        address from,
+        address to,
+        uint256 tokenId
+    ) internal virtual override {
+        require(false, "Soulbound Token: Transfer not allowed");
+    }
+
+    // Override the approve function to prevent approvals
+    function approve(address to, uint256 tokenId) public virtual override {
+        require(false, "Soulbound Token: Approvals not allowed");
+    }
+
+    // Override the setApprovalForAll function to prevent setting approvals
+    function setApprovalForAll(address operator, bool approved) public virtual override {
+        require(false, "Soulbound Token: Approvals not allowed");
+    }
 
 
 
